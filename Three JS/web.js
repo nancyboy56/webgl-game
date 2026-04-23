@@ -22,5 +22,21 @@ document.body.appendChild(renderer.domElement);
 //feild of view is in degrees
 fov = 75;
 
-camera = new THREE.PerspectiveCamera()
+//idk what this is
+ascpet = w/h;
+
+//how close the camer renders
+near = 0.1;
+
+// renders ten meters away
+far = 10;
+camera = new THREE.PerspectiveCamera(fov, ascpet, near, far);
+//make camera not in the centre
+camera.position.z = 2;
+
+//made the scene!
+scene = new THREE.Scene();
+
+renderer.render(scene, camera);
+
  
