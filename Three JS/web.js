@@ -1,5 +1,8 @@
 import * as THREE from "three";
+import { OrbitControls } from "jsm/controls/OrbitControls.js";
 
+
+// this is for displaying errors on the webpage
 window.onerror = function(message, source, lineno, colno, error) {
   const display = document.getElementById('error-display');
   display.style.display = 'block';
@@ -47,6 +50,11 @@ camera.position.z = 2;
 //made the scene!
 let scene = new THREE.Scene();
 
+//control by mouse or finger in web browser
+let controls = new OrbitControls(camera, renderer.domElement);
+controls.enbleDamping = true;
+controls.dampingFactor = 0.03;
+
 //making geometry, last one is details
 let geo = new THREE.IcosahedronGeometry(1.0,3);
 
@@ -88,5 +96,6 @@ function animate(t=0){
   //looks like its zooming in and out
  // mesh.scale.setScalar(Math.cos(t*0.001)+1.0)
   renderer.render(scene, camera);
+  controls.update();
 }
  animate();
