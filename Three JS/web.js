@@ -53,7 +53,7 @@ let geo = new THREE.IcosahedronGeometry(1.0,3);
 //this is unlit material
 //let mat = new THREE.MeshBasicMaterial({color: 0xccff});
 let mat = new THREE.MeshStandardMaterial({
-  color:0xccff, 
+  color:0xffffff, 
   flatShading: true})
 
 //container for both geomrty and material
@@ -71,8 +71,9 @@ let wiremesh = new THREE.Mesh(geo,wireMaterial);
 wiremesh.scale.setScalar(1.01);
 mesh.add(wiremesh);
 
+// write a function for rgb to hex
 //add a light
-let hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000);
+let hemisphereLight = new THREE.HemisphereLight(0x0099ff, 0x990000);
 scene.add(hemisphereLight);
 
 function animate(t=0){
