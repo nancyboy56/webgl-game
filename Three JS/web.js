@@ -51,22 +51,26 @@ let scene = new THREE.Scene();
 let geo = new THREE.IcosahedronGeometry(1.0,2);
 
 //this is unlit material
-let mat = new THREE.MeshBasicMaterial({color: 0xccff});
+//let mat = new THREE.MeshBasicMaterial({color: 0xccff});
+let mat = new THREE.MeshStandardMaterial({color:0xccff})
 
 //container for both geomrty and material
 let mesh = new THREE.Mesh(geo,mat);
 scene.add(mesh);
 
+//add a light
+let hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000);
+scene.add(hemisphereLight);
 
 function animate(t=0){
 
   //everytime animation frame is called its passing in
-  // a time difference each time
+  // a time is passed in, not deltatime just time
   requestAnimationFrame(animate);
 
   //cosing the size of the shape, 
   //looks like its zooming in and out
-  mesh.scale.setScalar(Math.cos(t*0.001)+1.0)
+ // mesh.scale.setScalar(Math.cos(t*0.001)+1.0)
   renderer.render(scene, camera);
 }
  animate();
