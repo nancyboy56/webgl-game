@@ -47,16 +47,27 @@ camera.position.z = 2;
 //made the scene!
 let scene = new THREE.Scene();
 
-//making geometry
-let geo = new THREE.IcosahedronGeometry(1.0,2);
+//making geometry, last one is details
+let geo = new THREE.IcosahedronGeometry(1.0,3);
 
 //this is unlit material
 //let mat = new THREE.MeshBasicMaterial({color: 0xccff});
-let mat = new THREE.MeshStandardMaterial({color:0xccff})
+let mat = new THREE.MeshStandardMaterial({
+  color:0xccff, 
+  flatShading: true})
 
 //container for both geomrty and material
 let mesh = new THREE.Mesh(geo,mat);
 scene.add(mesh);
+
+// ading a wireframe for the mesh
+let wireMaterial = new THREE.MeshBasicMaterial({
+  color:0xfffff,
+  wireframe: true
+});
+
+let wiremesh = new THREE.Mesh(geo,wireMaterial);
+mesh.add(wiremesh);
 
 //add a light
 let hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000);
@@ -67,7 +78,7 @@ function animate(t=0){
   //everytime animation frame is called its passing in
   // a time is passed in, not deltatime just time
   requestAnimationFrame(animate);
-
+  mesh.rotation.y = t* 0.0001;
   //cosing the size of the shape, 
   //looks like its zooming in and out
  // mesh.scale.setScalar(Math.cos(t*0.001)+1.0)
