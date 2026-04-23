@@ -67,6 +67,8 @@ let wireMaterial = new THREE.MeshBasicMaterial({
 });
 
 let wiremesh = new THREE.Mesh(geo,wireMaterial);
+// so there is no z fighting
+wiremesh.scale.setScalar(1.01);
 mesh.add(wiremesh);
 
 //add a light
@@ -78,6 +80,8 @@ function animate(t=0){
   //everytime animation frame is called its passing in
   // a time is passed in, not deltatime just time
   requestAnimationFrame(animate);
+
+  //making mesh move
   mesh.rotation.y = t* 0.0001;
   //cosing the size of the shape, 
   //looks like its zooming in and out
