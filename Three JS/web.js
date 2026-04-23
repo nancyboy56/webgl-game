@@ -47,11 +47,26 @@ camera.position.z = 2;
 //made the scene!
 let scene = new THREE.Scene();
 
+//making geometry
 let geo = new THREE.IcosahedronGeometry(1.0,2);
+
+//this is unlit material
 let mat = new THREE.MeshBasicMaterial({color: 0xccff});
+
+//container for both geomrty and material
 let mesh = new THREE.Mesh(geo,mat);
 scene.add(mesh);
 
 
-renderer.render(scene, camera);
- 
+function animate(t=0){
+
+  //everytime animation frame is called its passing in
+  // a time difference each time
+  requestAnimationFrame(animate);
+
+  //cosing the size of the shape, 
+  //looks like its zooming in and out
+  mesh.scale.setScalar(Math.cos(t*0.001)+1.0)
+  renderer.render(scene, camera);
+}
+ animate();
