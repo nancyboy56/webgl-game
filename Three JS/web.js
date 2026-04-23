@@ -1,5 +1,15 @@
 import * as THREE from "three";
 
+window.onerror = function(message, source, lineno, colno, error) {
+  const display = document.getElementById('error-display');
+  display.style.display = 'block';
+  display.innerHTML = `<strong>Error:</strong> ${message} <br> 
+                      <strong>File:</strong> ${source} <br> 
+                      <strong>Line:</strong> ${lineno}`;
+  return false; // Prevents the error from showing in the console
+};
+
+
 console.log("testing!");
 
 //three js needs three things for each scene. 
@@ -37,9 +47,9 @@ camera.position.z = 2;
 //made the scene!
 let scene = new THREE.Scene();
 
-geo = new THREE.IcosahedronGeometry(1.0,2);
-mat = new THREE.MeshBasicMaterial({color: 0xccff});
-mesh = new THREE.Mesh(geo,mat);
+let geo = new THREE.IcosahedronGeometry(1.0,2);
+let mat = new THREE.MeshBasicMaterial({color: 0xccff});
+let mesh = new THREE.Mesh(geo,mat);
 scene.add(mesh);
 
 
