@@ -11,7 +11,7 @@ w = window.innerWidth;
 h= window.innerHeight;
 //renderer
 // making antialias true
-const renderer = new new THREE.WebGLRenderer({antialias : true});
+const renderer = new THREE.WebGLRenderer({antialias : true});
 renderer.setSize(w,h);
 
 //make it visible in html
@@ -37,6 +37,11 @@ camera.position.z = 2;
 //made the scene!
 scene = new THREE.Scene();
 
-renderer.render(scene, camera);
+geo = new THREE.IcosahedronGeometry(1.0,2);
+mat = new THREE.MeshBasicMaterial({color: 0xccff});
+mesh = new THREE.Mesh(geo,mat);
+scene.add(mesh);
 
+
+renderer.render(scene, camera);
  
