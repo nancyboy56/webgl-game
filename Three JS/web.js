@@ -52,7 +52,9 @@ let scene = new THREE.Scene();
 
 //control by mouse or finger in web browser
 let controls = new OrbitControls(camera, renderer.domElement);
-controls.enbleDamping = true;
+
+//glide a little
+controls.enableDamping = true;
 controls.dampingFactor = 0.03;
 
 //making geometry, last one is details
