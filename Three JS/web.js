@@ -7,11 +7,11 @@ console.log("testing!");
 
 //set width and height of window
 //he puts as a const but couldnt it change if you resize the screen?
-w = window.innerWidth;
-h= window.innerHeight;
+let w = window.innerWidth;
+let h = window.innerHeight;
 //renderer
 // making antialias true
-const renderer = new new THREE.WebGLRenderer({antialias : true});
+const renderer = new THREE.WebGLRenderer({antialias : true});
 renderer.setSize(w,h);
 
 //make it visible in html
@@ -20,22 +20,22 @@ document.body.appendChild(renderer.domElement);
 
 // fov, aspect, near, far for input
 //feild of view is in degrees
-fov = 75;
+let fov = 75;
 
 //idk what this is
-ascpet = w/h;
+let ascpet = w/h;
 
 //how close the camer renders
-near = 0.1;
+let near = 0.1;
 
 // renders ten meters away
-far = 10;
-camera = new THREE.PerspectiveCamera(fov, ascpet, near, far);
+let far = 10;
+let camera = new THREE.PerspectiveCamera(fov, ascpet, near, far);
 //make camera not in the centre
 camera.position.z = 2;
 
 //made the scene!
-scene = new THREE.Scene();
+let scene = new THREE.Scene();
 
 renderer.render(scene, camera);
 
