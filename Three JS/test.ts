@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "jsm/controls/OrbitControls.js";
+import { float } from "three/tsl";
 
 
 // this is for displaying errors on the webpage
@@ -20,12 +21,13 @@ console.log("testing!");
 
 //set width and height of window
 //he puts as a const but couldnt it change if you resize the screen?
-let w = window.innerWidth;
-let h = window.innerHeight;
+const w = window.innerWidth;
+const h = window.innerHeight;
 //renderer
 // making antialias true
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(w, h);
+
 
 //make it visible in html
 //append canvas

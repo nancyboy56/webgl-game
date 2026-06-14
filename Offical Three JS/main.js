@@ -1,6 +1,4 @@
 import * as THREE from 'three';
-import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
-
 //idk why my old code was not working
 
 // this is for displaying errors on the webpage
